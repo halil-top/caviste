@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
 </head>
 <body>
     <div class="container">
@@ -61,7 +62,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                               <label class="col-md-4 control-label" for="name">Name:</label>  
-                              <div class="col-md-4">
+                              <div class="col-md-12">
                                 <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
                                 <span class="help-block"></span>  
                               </div>
@@ -70,7 +71,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                               <label class="col-md-4 control-label" for="grapes">Grapes:</label>  
-                              <div class="col-md-4">
+                              <div class="col-md-12">
                                 <input id="grapes" name="grapes" type="text" placeholder="" class="form-control input-md">
                                 <span class="help-block"></span>  
                               </div>
@@ -79,7 +80,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                               <label class="col-md-4 control-label" for="country">Country:</label>  
-                              <div class="col-md-4">
+                              <div class="col-md-12">
                                 <input id="country" name="country" type="text" placeholder="" class="form-control input-md">
                                 <span class="help-block"></span>  
                               </div>
@@ -88,7 +89,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                               <label class="col-md-4 control-label" for="region">Region:</label>  
-                              <div class="col-md-4">
+                              <div class="col-md-12">
                                 <input id="region" name="region" type="text" placeholder="" class="form-control input-md">
                                 <span class="help-block"></span>  
                               </div>
@@ -97,7 +98,7 @@
                             <!-- Text input-->
                             <div class="form-group">
                               <label class="col-md-4 control-label" for="year">Year</label>
-                              <div class="col-md-4">
+                              <div class="col-md-6">
                                   <input id="year" name="year" type="number" pattern="[0-9]{4}" placeholder="" class="form-control input-md">
                                 <span class="help-block"></span>  
                               </div>
@@ -113,7 +114,7 @@
                         </div>
                         <div class="col">
                             <div class="card mx-auto" style="width: 18rem;">
-                                <img class="card-img-top" id="picture" src="http://caviste.localhost/pics/generic.jpg" alt="Generic Wine Bottle">
+                                <img class="card-img-top" id="picture" src="images/pics/generic.jpg" alt="Generic Wine Bottle">
                                 <div class="card-body text-right">
                                   <button type="button" class="btn btn-light" id="btImgChange">
                                       <i class="fas fa-pencil-alt"></i>
@@ -125,8 +126,8 @@
                             <!-- Textarea -->
                             <div class="form-group">
                               <label class="col-md-4 control-label" for="notes">Notes:</label>
-                              <div class="col-md-4">                     
-                                <textarea class="form-control" id="notes" name="notes"></textarea>
+                              <div class="col-md-12">                     
+                                  <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
                               </div>
                             </div>
                         </div>
