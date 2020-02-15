@@ -97,7 +97,20 @@ function getWine(id, wines) {
 let wines;
 
 window.onload = function() {
-    const xhr = new XMLHttpRequest();       //console.log(xhr);
+    const apiURL = 'js/wines.json';
+    const options = {
+        'method':'GET'
+    };
+    
+    fetch(apiURL, options).then(function(response) {
+        if(response.ok) {
+            response.json().then(function(data){
+                wines = data;
+            });
+        }
+    });
+
+    /*  const xhr = new XMLHttpRequest();       //console.log(xhr);
     
     xhr.onreadystatechange = function() {
         if(xhr.readyState==4 && xhr.status==200) {
@@ -109,9 +122,10 @@ window.onload = function() {
             showListe(wines);
         }     
     };
-            
+    
     xhr.open('GET','js/wines.json',true);
     xhr.send();
+    */
 
     //Configuration des boutons
     let btSearch = document.getElementById('btSearch');
