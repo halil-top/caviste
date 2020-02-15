@@ -1,3 +1,7 @@
+function newWine() {
+    console.log('ok');
+}
+
 function showListe(wines) {
     //Sélectionner la liste des vins
     let listeUL = document.getElementById('liste');
@@ -86,5 +90,8 @@ window.onload = function() {
     //Configuration des boutons
     let btSearch = document.getElementById('btSearch');
     btSearch.addEventListener('click', () => search());
+    
+    let btNewWine = document.getElementById('btNewWine');
+    btNewWine.addEventListener('click', () => newWine());
 };
 
