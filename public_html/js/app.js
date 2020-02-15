@@ -1,5 +1,30 @@
 function newWine() {
-    console.log('ok');
+    //Vider le formulaire
+    let input = document.getElementById('idWine');
+    input.value = '';
+
+    input = document.getElementById('name');
+    input.value = '';
+
+    input = document.getElementById('grapes');
+    input.value = '';
+
+    input = document.getElementById('country');
+    input.value = '';
+
+    input = document.getElementById('region');
+    input.value = '';
+
+    input = document.getElementById('year');
+    input.value = '';
+
+    input = document.getElementById('notes');
+    input.innerHTML = '';
+
+    let imgWine = document.getElementById('picture');
+    imgWine.src = 'images/pics/generic.jpg';
+    
+    //Mettre le curseur dans le champ name
 }
 
 function showListe(wines) {
