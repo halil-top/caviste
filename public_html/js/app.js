@@ -1,7 +1,43 @@
-function getWine(id, wines) {
-    let wine = wines.find(function(wine) {
-        return wine.id == id;
+function showListe(wines) {
+    //Sélectionner la liste des vins
+    let listeUL = document.getElementById('liste');
+    let strLIs = '';
+
+    //Pour chaque vin, créer un LI
+    wines.forEach(function(wine) {
+        let idWine = wine.id;
+
+        strLIs += '<li data-id="'+idWine+'" class="list-group-item">'+wine.name+'</li>';
     });
+
+    //Insérer tous les LIs dans la liste UL des vins
+    listeUL.innerHTML = strLIs;
+
+    //Récupérer tous les LIs
+    let nodeLIs = listeUL.getElementsByTagName('li');
+
+    //Ajouter un gestionnaire d'événement sur chaque LI
+    for(let li of nodeLIs) {
+        li.addEventListener('click',function() { 
+            getWine(this.dataset.id, wines);
+        });
+    }
+}
+
+function search() {
+    let inputKeyword = document.getElementById('keyword');
+    let keyword = inputKeyword.value;   
+    
+    //Filtrer la liste des vins sur base du keyword
+    const regex = new RegExp(keyword, 'i');
+    let filteredWines = wines.filter(wine => wine.name.search(regex)!=-1);
+
+    //Afficher les vins dans le UL liste
+    showListe(filteredWines);
+}
+    
+function getWine(id, wines) {
+    let wine = wines.find(wine => wine.id == id);
     
     let input = document.getElementById('idWine');
     input.value = wine.id;
@@ -28,6 +64,7 @@ function getWine(id, wines) {
     imgWine.src = 'images/'+wine.picture;
 }
 
+let wines;
 
 window.onload = function() {
     const xhr = new XMLHttpRequest();       //console.log(xhr);
@@ -36,37 +73,18 @@ window.onload = function() {
         if(xhr.readyState==4 && xhr.status==200) {
             let data = xhr.responseText;        //console.log(data);
             
-            let wines = JSON.parse(data);       console.log(wines);
+            wines = JSON.parse(data);       console.log(wines);
                         
-            //Sélectionner la liste des vins
-            let listeUL = document.getElementById('liste');
-            let strLIs = '';
-            
-            //Pour chaque vin, créer un LI
-            wines.forEach(function(wine) {
-                let idWine = wine.id;
-                
-                strLIs += '<li data-id="'+idWine+'" class="list-group-item">'+wine.name+'</li>';
-            });
-            
-            //Insérer tous les LIs dans la liste UL des vins
-            listeUL.innerHTML = strLIs;
-            
-            //Récupérer tous les LIs
-            let nodeLIs = listeUL.getElementsByTagName('li');
-            
-            //Ajouter un gestionnaire d'événement sur chaque LI
-            for(let li of nodeLIs) {
-                li.addEventListener('click',function() { 
-                    getWine(this.dataset.id, wines);
-                    
-                   // console.log(wine);
-                });
-            }
-        }
+            //Afficher la liste des vins dans UL liste
+            showListe(wines);
+        }     
     };
             
     xhr.open('GET','js/wines.json',true);
     xhr.send();
+
+    //Configuration des boutons
+    let btSearch = document.getElementById('btSearch');
+    btSearch.addEventListener('click', () => search());
 };
 
