@@ -1,6 +1,31 @@
 function getWine(id, wines) {
-    console.log(wines);
-    
+    wines.forEach(function(wine) {
+        if(wine.id == id) {
+            let input = document.getElementById('idWine');
+            input.value = wine.id;
+            
+            input = document.getElementById('name');
+            input.value = wine.name;
+            
+            input = document.getElementById('grapes');
+            input.value = wine.grapes;
+            
+            input = document.getElementById('country');
+            input.value = wine.country;
+            
+            input = document.getElementById('region');
+            input.value = wine.region;
+            
+            input = document.getElementById('year');
+            input.value = wine.year;
+            
+            input = document.getElementById('notes');
+            input.innerHTML = wine.notes;
+            
+            let imgWine = document.getElementById('picture');
+            imgWine.src = 'images/'+wine.picture;
+        }
+    });
 }
 
 
@@ -11,7 +36,7 @@ window.onload = function() {
         if(xhr.readyState==4 && xhr.status==200) {
             let data = xhr.responseText;        //console.log(data);
             
-            let wines = JSON.parse(data);       //console.log(wines);
+            let wines = JSON.parse(data);       console.log(wines);
                         
             //Sélectionner la liste des vins
             let listeUL = document.getElementById('liste');
@@ -32,9 +57,11 @@ window.onload = function() {
             
             //Ajouter un gestionnaire d'événement sur chaque LI
             for(let li of nodeLIs) {
-                li.onclick = function() { 
+                li.addEventListener('click',function() { 
                     getWine(this.dataset.id, wines);
-                };
+                    
+                   // console.log(wine);
+                });
             }
         }
     };
