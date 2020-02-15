@@ -1,31 +1,31 @@
 function getWine(id, wines) {
-    wines.forEach(function(wine) {
-        if(wine.id == id) {
-            let input = document.getElementById('idWine');
-            input.value = wine.id;
-            
-            input = document.getElementById('name');
-            input.value = wine.name;
-            
-            input = document.getElementById('grapes');
-            input.value = wine.grapes;
-            
-            input = document.getElementById('country');
-            input.value = wine.country;
-            
-            input = document.getElementById('region');
-            input.value = wine.region;
-            
-            input = document.getElementById('year');
-            input.value = wine.year;
-            
-            input = document.getElementById('notes');
-            input.innerHTML = wine.notes;
-            
-            let imgWine = document.getElementById('picture');
-            imgWine.src = 'images/'+wine.picture;
-        }
+    let wine = wines.find(function(wine) {
+        return wine.id == id;
     });
+    
+    let input = document.getElementById('idWine');
+    input.value = wine.id;
+
+    input = document.getElementById('name');
+    input.value = wine.name;
+
+    input = document.getElementById('grapes');
+    input.value = wine.grapes;
+
+    input = document.getElementById('country');
+    input.value = wine.country;
+
+    input = document.getElementById('region');
+    input.value = wine.region;
+
+    input = document.getElementById('year');
+    input.value = wine.year;
+
+    input = document.getElementById('notes');
+    input.innerHTML = wine.notes;
+
+    let imgWine = document.getElementById('picture');
+    imgWine.src = 'images/'+wine.picture;
 }
 
 
