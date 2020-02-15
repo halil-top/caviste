@@ -3,8 +3,8 @@ function newWine() {
     let input = document.getElementById('idWine');
     input.value = '';
 
-    input = document.getElementById('name');
-    input.value = '';
+    let inputName = document.getElementById('name');
+    inputName.value = '';
 
     input = document.getElementById('grapes');
     input.value = '';
@@ -25,6 +25,7 @@ function newWine() {
     imgWine.src = 'images/pics/generic.jpg';
     
     //Mettre le curseur dans le champ name
+    inputName.focus();
 }
 
 function showListe(wines) {
